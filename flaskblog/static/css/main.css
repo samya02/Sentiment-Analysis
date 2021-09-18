@@ -1,0 +1,156 @@
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:300,600);
+
+.navbar {
+    background:	#3D304F;
+}
+
+.nav-link,
+.navbar-brand {
+    color: #fff;
+    cursor: pointer;
+}
+
+.nav-link {
+    margin-right: 1em !important;
+}
+
+.nav-link:hover {
+    color: #45c6d1;
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.content-section, .content-sms {
+    background-image: url('../images/background2.jpg');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    padding: -5px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    height: 100% !important;
+    width:100% ;
+    color: #0d048d;
+    letter-spacing: 1px;
+    font-family: 'Times New Roman', serif;
+    font-size: 20px;
+}
+
+.form-box {
+    width: 400px;
+    border:solid;
+    border-color:#3D304F;
+    position: relative;
+    margin: 6% auto;
+    background: white;
+    padding: 7px;
+    line-height: 1;
+    border-radius: 18px;
+}
+
+.border-bottom {
+    color: #0d048d;
+    letter-spacing: 1px;
+    font-family: 'Times New Roman', serif;
+    font-size: 25px;
+    text-align: center;
+}
+
+.btn-outline-info{
+    width: 85%;
+    cursor:pointer;
+    border-radius: 30px;
+    background: linear-gradient(to right, #ff105f,#ffad06);
+    margin: 0px 30px;
+    border: 0;
+    outline: none;
+    color: white;
+    position:relative;
+    font-size: 20px;
+
+}
+
+.box {
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 2%;
+  }
+
+  .box1 {
+    max-width: 1000px;
+    margin-left: 25px;
+    margin-right: -255px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: whitesmoke;
+    border: #3D304F solid;
+    border-radius: 0.8px;
+  }
+
+  .content:hover, .form-box:hover{
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.08);
+  }
+
+   /* Dropdown Button */
+.dropbtn {
+    background-color: #3D304F;
+    color: white;
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    margin: 0px 16px 0px 0px;
+    
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FCEFE3;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: #3D304F;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {background-color:#3D304F}
+  
+  .page-footer{
+    padding: 1px 0px 1px 0px;
+    margin:0 auto;
+  
+      height:350px;
+      overflow:hidden;
+      bottom: 0px;
+    background: #3D304F;
+  }
