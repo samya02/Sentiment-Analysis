@@ -831,7 +831,7 @@ color: #ffffff;}
 }
 
 .ticket-container {
-	background: rgb(236, 218, 228);
+	background: rgb(224, 218, 236);
 	width: 270px;
 	height: 430px;
 	display: flex;
@@ -921,7 +921,7 @@ color: #ffffff;}
 }
 
 .meditate {
-    background-image: url("../images/header3.jpg");
+    background-image: url("https://wallpapercave.com/wp/wp4766586.png");
     background-size: cover;
     background-position: center;
     padding-right: 0%;
