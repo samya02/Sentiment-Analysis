@@ -1,0 +1,94 @@
+
+{%extends "layout.html"%}
+{%block content%}
+<div class = "tweet"><br>
+<h1 style = "padding : 30px; font-size: 4rem;
+font-family: ui-monospace;
+color :#190831;" ><u><center>Hashtag: {{hash1}}</center></u></h1>
+<hr>
+<div class = "row">
+    <div class = "column">
+<div class = "form-box" style ="box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+transition: all 0.2s; height: 650px;
+    width: 500px;">
+
+<h4>Percentage Division</h4>
+<p>The percentage of positive tweets are-: {{ pos }} %</p>
+<p>The percentage of negative tweets are-: {{ neg }} %</p>
+<p>The percentage of neutral tweets are-: {{ neu }} %</p>
+
+<div class="chart-container" style="position: relative;">
+    <canvas id="percentage_division"></canvas>
+</div>
+</div>
+</div>
+<div class = "column" style="
+padding-left: 250px;
+padding-top: 25px;
+">
+<div class = "form-box" style= "box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+transition: all 0.2s;">
+    <h4>Most Common Words-:</h4>
+    <center box-sizing: border-box;
+    margin: 0;>
+    <table border = 1, CELLPADDING="20" CELLSPACING="20", width =10>
+        <tr>
+            <th>Word</th>
+            <th>Frequency</th>
+        </tr>
+        {% for i in range(10) %}
+        <tr>
+            <td>{{common_words[i]}}</td>
+            <td>{{counts[i]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </center>
+</div>
+</div>
+</div>
+
+{% block javascript%}
+<script>
+    
+    let percentage_div_tweets = new Chart(percentage_division, {
+        type: 'pie',
+        data: {
+        labels: ['Positive', 'Negative', 'Neutral'],
+            datasets: [{
+                label: "Percentage Division of Tweets",
+                data: {{division}},
+                backgroundColor: ['#5DA5DA ', '#FAA43A', '#60BD68',
+                    '#B276B2', '#E16851', '#FB8267'],
+
+                borderWidth: 1,
+                hoverBorderColor: "black",
+                hoverBorderWidth: 2,
+                hoverBackgroundColor: 'rgba(154, 245, 140)',
+                pointHoverRadius: 5
+            }],
+        },
+        options: {
+                title: {
+                    display: true,
+                        text: "Percentage Division",
+                            fontSize: 20,
+                },
+                legend: {
+                    position: "right",
+                        labels: {
+                        fontColor: "gray"
+                    },
+                    display: true,
+                },
+
+                elements: {
+                    hitRadius: 3,
+                }
+        }
+    })
+
+    </script>
+</div>
+{%endblock%}
+{%endblock%}

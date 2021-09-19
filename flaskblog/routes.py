@@ -1,8 +1,11 @@
 from flask import render_template, url_for, flash, redirect, request
 from flaskblog import app, db, bcrypt
-from flaskblog.forms import RegistrationForm, LoginForm
+from flaskblog.forms import RegistrationForm, LoginForm, HashtagtForm
 from flaskblog.models import User
 from flask_login import login_user, current_user, logout_user, login_required
+from flaskblog.sentiment import get_tweets, tweet_to_data_frame, cleantext, getPolarity, getSubjectivity, getAnalysis, positivetweets, negativetweets, neutraltweets
+import re
+import collections
 
 @app.route('/')
 @app.route('/home/')
@@ -59,3 +62,44 @@ def account():
 @app.route('/meditate/')
 def mediate():
     return render_template("meditate.html")
+
+@app.route('/tweet_analysis', methods=['GET', 'POST'])
+def tweet_analysis():
+    form = HashtagtForm()
+    if form.validate_on_submit():
+        hash1 = request.form['hashtag']
+        hash = request.form['hashtag'] + ' -filter:retweets'
+        alltweets = get_tweets(hash)
+        data = tweet_to_data_frame(alltweets)
+        data['Tweets'] = data['Tweets'].apply(cleantext)
+        data['Subjectivity'] = data['Tweets'].apply(getSubjectivity)
+        data['Polarity'] = data['Tweets'].apply(getPolarity)
+        data['Analysis'] = data['Polarity'].apply(getAnalysis)
+        pos = positivetweets(data)
+        neg = negativetweets(data)
+        neu = neutraltweets(data)
+        division = [pos, neg, neu]
+        words = []
+        for tweet in data['Tweets']:
+            wordList = re.sub("[^\w]", " ",  tweet).split()
+            words = words + wordList
+        
+        words = []
+        for tweet in data['Tweets']:
+            wordList = re.sub("[^\w]", " ",  tweet).split()
+            words = words + wordList
+        stopwords = ['amp','I','The', 'us','re','it','to','the','and','you','a','of', 'for', 'thus']
+        filtered_words = [word for word in words if word not in stopwords]
+        counted_words = collections.Counter(filtered_words)
+
+        common_words = []
+        counts = []
+        for letter, count in counted_words.most_common(10):
+            common_words.append(letter)
+            counts.append(count)
+        return render_template('result_analysis.html', hash1=hash1, data = data, pos=pos, neg=neg, neu=neu, division=division, common_words=common_words, counts=counts)
+    return render_template('tweet_analysis.html', form=form)
+
+@app.route('/result_analysis')
+def result_analysis():
+    return render_template('result_analysis.html')

@@ -929,3 +929,16 @@ color: #ffffff;}
     height: 100vh;
     width: 100;
   }
+  
+  .tweet{
+    background-image: url(../images/tweet1.jpg);
+    padding-bottom: 10px;
+  }
+
+  .analysis{
+    margin: 0px;
+    background: url(../images/tweet1.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }

@@ -32,3 +32,7 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
+
+class HashtagtForm(FlaskForm):
+    hashtag = StringField('Hashtag', validators=[DataRequired()])
+    submit = SubmitField('Analyze')

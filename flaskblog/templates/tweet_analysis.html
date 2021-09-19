@@ -1,0 +1,72 @@
+{%extends "layout.html"%}
+{%block content%}
+<div class = "tweet">
+    <div id="about_hashtag">
+        <center>
+            <H1 style="
+                padding-top: 30px;
+                font-size: 3rem;
+                font-family: ui-monospace;
+                color :#190831;
+            ">
+                <strong><u>
+                        <i>Why Tweet Analysis?</i>
+                </strong></u>
+            </H1>
+            <hr width=50% opacity=0.5>
+            <p style="
+                font-style:italic;
+                margin-right: 100px;
+                margin-left: 100px;
+                font-weight: bold;
+                font-size: 1.3rem;
+                font-family: unset;
+                color: black;
+                text-shadow: -1px -1px 0 rgb(255, 255, 255), 1px -1px 0 rgb(255, 255, 255), -1px 1px 0 rgb(255, 255, 255), 1px 1px 0 rgb(255, 255, 255);
+            ">
+                We live in a world of evergrowing technology and an overflowing pool of opinions surfing across the various
+                social media platforms particularly Twitter.
+                Therefore, it is the need of the hour for us to be more cautious and considerate of the things we write on
+                the internet to ensure safety, inclusion and respect of all communities.
+                Tweet Analysis gives us a rough idea about the trending hashtags. Try it yourself!
+            </p>
+        </center>
+    </div>
+    <div class="form-box" style="width : 500px">
+        <div class="content-hashtag">
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Enter Hashtag</legend>
+                    <div class="form-group">
+                        {{ form.hashtag.label(class="form-control-label") }}
+                        {% if form.hashtag.errors %}
+                        {{ form.hashtag(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.hashtag.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.hashtag(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                </div>
+        </div>
+    </div>
+        </form>
+        <div class="cookie-container" style="padding: 10px; border: 5px solid #190831; text-align-last: center;margin-left: 100px;margin-right: 100px; color: #190831; font-weight: bold;">
+            <center><b>Disclaimer</b></center><br>
+                <ul>
+                    <ul>This tweet anaylsis has been done in real-time using twitter APIs on 500 tweets</ul>
+                    <ul>Since it's based on real-time tweets extraction, users are requested to enter hashtags that are presently trending or have been in the trends for the past 1 week</ul>
+                    <ul>The tweets have been taken from all over the world. To be more specific, enter hashtags more prominent in the country</ul>
+                </ul>
+    
+            
+        </div>
+    </div>
+{%endblock%}
