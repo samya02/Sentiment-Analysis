@@ -26,20 +26,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{url_for('contact')}}">Contact Us</a>
                 </li>
-                {% if current_user.is_authenticated %}
-                <li class="dropdown">
-                    <button class="dropbtn">Account</button>
-                    <div class="dropdown-content">
-                      <a href="{{url_for('account')}}">See Profile</a>
-                      <a href="{{url_for('logout')}}">Logout</a>
-                    </div>
-                </li>
-                {% else %}
-                   
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('register')}}">Register</a>
-                    </li>
-                {% endif %}
             </ul>
         </div>
     </nav>
