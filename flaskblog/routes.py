@@ -56,6 +56,6 @@ def logout():
 def account():
     return render_template('account.html') 
 
-@app.route('/mediate/')
+@app.route('/meditate/')
 def mediate():
-    return render_template("mediate.html")
+    return render_template("meditate.html")
