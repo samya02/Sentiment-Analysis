@@ -55,3 +55,7 @@ def logout():
 @login_required
 def account():
     return render_template('account.html') 
+
+@app.route('/mediate/')
+def mediate():
+    return render_template("mediate.html")
